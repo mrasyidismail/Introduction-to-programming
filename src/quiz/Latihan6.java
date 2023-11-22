@@ -1,112 +1,113 @@
+/**
+ * @author github.com/mrasyidismail
+ */
 package quiz;
 
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Latihan6 {
 	Scanner sc = new Scanner(System.in);
-	final int MAX_DATA = 100;
-	String[] staffName = new String[MAX_DATA];
-	String[] staffPosition = new String[MAX_DATA];
-	int[] staffAge = new int[MAX_DATA];
-	int count = 0, menu;
+	String name, position, query;
+	int menu, age, id = 0;
+	Vector<String> staffName = new Vector<String>();
+	Vector<String> staffPosition = new Vector<String>();
+	Vector<Integer> staffAge = new Vector<Integer>();
 
 	public Latihan6() {
 		do {
-			System.out
-					.print("Job Vacancy\n1. Insert a new staff\n2. List of staff\n3. Search staff\n4. Exit\nChoose: ");
+			System.out.print("Job Vacancy\n1. Insert new staff\n2. List of staff\n3. Search staff\n4. Exit\nChoose: ");
 			menu = sc.nextInt();
 			sc.nextLine();
 			switch (menu) {
 			case 1: {
-				String name, position;
-				int age;
-
-				do {
-					System.out.print("Input staff name [3..20]: ");
-					name = sc.nextLine();
-				} while (name.length() < 3 || name.length() > 20);
-
-				staffName[count] = name;
-
-				do {
-					System.out.print("Enter staff's position [Manager|Analyst|Programmer]: ");
-					position = sc.nextLine();
-				} while (!(position.equalsIgnoreCase("manager") || position.equalsIgnoreCase("analyst")
-						|| position.equalsIgnoreCase("programmer")));
-
-				staffPosition[count] = position;
-
-				do {
-					System.out.print("Enter staff's age [must be more than 17 years old]: ");
-					age = sc.nextInt();
-					sc.nextLine();
-				} while (age < 17);
-
-				staffAge[count] = age;
-				System.out.println("");
-				count++;
+				insertStaff();
 				break;
 			}
 			case 2: {
-				if (count == 0) {
-					System.out.println("No data !\n");
-				} else {
-					for (int i = 0; i < count; i++) {
-						System.out.println("Staff ID       : " + (i + 1));
-						System.out.println("=========================");
-						System.out.println("Staff Name     : " + staffName[i]);
-						System.out.println("Staff Position : " + staffPosition[i]);
-						System.out.println("Staff Age      : " + staffAge[i]);
-					}
-				}
+				showStaff();
 				break;
 			}
 			case 3: {
-				String name;
-				if (count == 0) {
-					System.out.println("No data !\n");
-				} else {
-					do {
-						System.out.print("Input staff's name [3..20] : ");
-						name = sc.nextLine();
-					} while (name.length() < 3 || name.length() > 20);
-					System.out.println();
-					boolean found = false; // Variable to track whether the data is found
-
-					for (int i = 0; i < count; i++) {
-						if (staffName[i].equalsIgnoreCase(name)) {
-							System.out.println("Staff ID       : " + (i + 1));
-							System.out.println("=========================");
-							System.out.println("Staff Name     : " + staffName[i]);
-							System.out.println("Staff Position : " + staffPosition[i]);
-							System.out.println("Staff Age      : " + staffAge[i]);
-							found = true;
-							break;
-						}
-					}
-					System.out.println();
-
-					if (!found) {
-						System.out.println("Data not found!");
-					}
-
-				}
+				searchStaff();
 				break;
 			}
 			case 4: {
 				System.out.println("Program has been closed !");
 				break;
 			}
-
-			default: {
+			default:
 				break;
 			}
-			}
 		} while (menu != 4);
+	}
+
+	public void insertStaff() {
+		do {
+			System.out.print("Enter staff's name [3..20] : ");
+			name = sc.nextLine();
+		} while (name.length() < 3 || name.length() > 20);
+
+		do {
+			System.out.print("Enter staff's position [ Manager | Analyst | Programmer ] : ");
+			position = sc.nextLine();
+		} while (!(position.equalsIgnoreCase("Manager") || position.equalsIgnoreCase("Analyst")
+				|| position.equalsIgnoreCase("Programmer")));
+
+		do {
+			System.out.print("Enter staff's age [ Must be older than 17 ] : ");
+			age = sc.nextInt();
+			sc.nextLine();
+		} while (age < 17);
+		System.out.println();
+
+		staffName.add(name);
+		staffPosition.add(position);
+		staffAge.add(age);
+	}
+
+	public void showStaff() {
+		if (staffAge.size() == 0)
+			System.out.println("No Data!\n");
+		else {
+			for (int i = 0; i < staffAge.size(); i++) {
+				System.out.println("Staff ID    : " + (i + 1));
+				System.out.println("================");
+				System.out.println("1. Name     : " + staffName.get(i));
+				System.out.println("2. Position : " + staffPosition.get(i));
+				System.out.println("4. Age      : " + staffAge.get(i));
+				System.out.println();
+			}
+		}
+	}
+
+	public void searchStaff() {
+		if (staffAge.size() == 0)
+			System.out.println("No Data! Please input a data first !\n");
+		else {
+			do {
+				System.out.print("Enter staff's name [3..20] : ");
+				query = sc.nextLine();
+			} while (query.length() < 3 || query.length() > 20);
+			System.out.println();
+
+			for (int i = 0; i < staffAge.size(); i++) {
+				if (staffName.get(i).equalsIgnoreCase(query)) {
+					System.out.println("Staff ID    : " + (i + 1));
+					System.out.println("================");
+					System.out.println("1. Name     : " + staffName.get(i));
+					System.out.println("2. Position : " + staffPosition.get(i));
+					System.out.println("4. Age      : " + staffAge.get(i));
+					break;
+				} else {
+					System.out.println("No staff found with name : " + query);
+				}
+			}
+			System.out.println();
+		}
 	}
 
 	public static void main(String[] args) {
 		new Latihan6();
 	}
-
 }
