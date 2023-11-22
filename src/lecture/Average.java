@@ -9,10 +9,11 @@ public class Average {
 	public Average() {
 		System.out.print("How many numbers will be input : ");
 		number = sc.nextInt();
-
-		forLoop();
-		doWhile();
-		whileLoop();
+		
+		// Uncomment to run (Only one method at a time)
+//		forLoop();
+//		doWhile();
+//		whileLoop();
 
 		System.out.println("Total   : " + total);
 		System.out.println("Average : " + (double) total / number);
