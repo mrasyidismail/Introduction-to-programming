@@ -1,3 +1,6 @@
+/**
+ * @author github.com/mrasyidismail
+ */
 package quiz;
 
 import java.util.Random;
