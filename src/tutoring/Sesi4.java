@@ -15,8 +15,8 @@ public class Sesi4 {
 
 			for (String[] userData : database) {
 				String name = userData[0], pwd = userData[1];
-				
-				if (inputName.equals(name)) {
+
+				if (userData[0].equals(inputName)) {
 					while (true) {
 						System.out.print("Password : ");
 						password = sc.nextLine();
@@ -28,16 +28,16 @@ public class Sesi4 {
 							System.out.println("Pass is wrong");
 						}
 					}
+					break;
 				}
-				break;
 			}
-			
 			if (!isFound) {
 				System.out.println("Username is not found !");
 			} else {
 				break;
 			}
 		}
+
 	}
 
 	public static void main(String[] args) {
