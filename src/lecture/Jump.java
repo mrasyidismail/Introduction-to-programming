@@ -32,18 +32,16 @@ public class Jump {
 							isFound = true; // Mengubah variable isFound menjadi false agar bisa keluar dari while
 											// looping yang digunakan untuk input username
 							break; // break statement untuk keluar dari while looping iterasi database password
-						} else {
+						} else
 							System.out.println("Password is wrong !");
-						}
 					}
 					break; // Keluar dari for looping iterasi database jika username tidak ada
 				}
 			}
 			if (!isFound) { // Print "Username is not found !" jika input username tidak ada di database
 				System.out.println("Username is not found !");
-			} else {
+			} else
 				break; // break statement untuk keluar dari while looping untuk input username
-			}
 		}
 	}
 
