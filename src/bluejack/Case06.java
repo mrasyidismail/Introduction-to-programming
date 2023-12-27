@@ -2,13 +2,13 @@ package bluejack;
 
 import java.util.Scanner;
 
-public class Case6 {
+public class Case06 {
 	Scanner sc = new Scanner(System.in);
 	double currentMoney, investedMoney;
 	String validate;
 	int multiplier, month, menu;
 
-	public Case6() {
+	public Case06() {
 		// TODO Auto-generated constructor stub
 		while (true) {
 			month = 0;
@@ -89,7 +89,7 @@ public class Case6 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new Case6();
+		new Case06();
 	}
 
 }

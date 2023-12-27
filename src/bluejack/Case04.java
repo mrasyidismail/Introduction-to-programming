@@ -6,9 +6,9 @@ package bluejack;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class Case4 {
+public class Case04 {
 
-	public Case4() {
+	public Case04() {
 		Scanner scan = new Scanner(System.in);
 		String itemName;
 		int menu, quantity;
@@ -78,7 +78,7 @@ public class Case4 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new Case4();
+		new Case04();
 	}
 
 }

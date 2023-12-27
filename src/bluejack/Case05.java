@@ -2,13 +2,13 @@ package bluejack;
 
 import java.util.Scanner;
 
-public class Case5 {
+public class Case05 {
 	Scanner sc = new Scanner(System.in);
 	String itemName;
 	int menu, itemStock, quantity, discount, newStock;
 	double itemPrice, totalPrice, money, change;
 
-	public Case5() {
+	public Case05() {
 
 		System.out.println("ES Companies Portal - Cashier App 3");
 		System.out.println("===================================");
@@ -138,7 +138,7 @@ public class Case5 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new Case5();
+		new Case05();
 	}
 
 }

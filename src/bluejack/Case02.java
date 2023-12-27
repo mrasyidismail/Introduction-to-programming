@@ -6,9 +6,9 @@ package bluejack;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Case2 {
+public class Case02 {
 
-	public Case2() {
+	public Case02() {
 		Scanner scan = new Scanner(System.in);
 		Random rand = new Random();
 		String companyName;
@@ -55,7 +55,7 @@ public class Case2 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new Case2();
+		new Case02();
 	}
 
 }

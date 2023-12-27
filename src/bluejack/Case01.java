@@ -5,9 +5,9 @@ package bluejack;
 
 import java.util.Scanner;
 
-public class Case1 {
+public class Case01 {
 
-	public Case1() {
+	public Case01() {
 		Scanner scan = new Scanner(System.in);
 		String name, company;
 		int age;
@@ -49,7 +49,7 @@ public class Case1 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new Case1();
+		new Case01();
 	}
 
 }
